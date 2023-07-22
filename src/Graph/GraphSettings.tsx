@@ -27,6 +27,7 @@ function GraphSettings({graph, movingMode, addingMode, selectingMode,
 //      }
 //    });
     setAddingMode(false);
+    setSelectingMode(false);
     setMovingMode(!movingMode);
 //    console.log(movingMode);
   };
@@ -36,12 +37,19 @@ function GraphSettings({graph, movingMode, addingMode, selectingMode,
       for(let i:number = 0; i < graph.nodes.length; i++) {
         if((mousePos.x >= graph.nodes[i].x - 15) && (mousePos.x <= graph.nodes[i].x + 15)) {
           if((mousePos.y >= graph.nodes[i].y - 15) && (mousePos.y <= graph.nodes[i].y + 15)) {
-             graph.nodes[i].selected = true;
+            graph.nodes[i].selected = true;
             path.push(graph.nodes[i]);
           }
         }
       }
     }
+  };
+
+  const selectHandler = () => {
+    setSelectingMode(!selectingMode);
+    setMovingMode(false);
+    setAddingMode(false);
+    console.log(selectingMode);
   };
 
   const handleNodeAdder = () => {
@@ -92,7 +100,7 @@ function GraphSettings({graph, movingMode, addingMode, selectingMode,
 
       <div className="space" />
 
-      <button className="solveButton" onClick={() => graph.search()}>
+      <button className="solveButton" onClick={selectHandler}>
         Solve Path
       </button>
     </div>

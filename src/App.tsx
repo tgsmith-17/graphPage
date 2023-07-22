@@ -13,6 +13,11 @@ import './App.css'
 
 //? npm run dev to start server, for some reason
 
+// To push to Github:
+//  git add .
+//  git commit -m "<COMMIT_MSG>"
+//  git push origin main
+
 // TODO:
 
 let graph:Graph = new Graph(window.innerWidth*0.85, window.innerHeight*0.85);
@@ -60,6 +65,7 @@ function App() {
           setMousePos={setMousePos}
           addingMode={addingMode}
           movingMode={movingMode}
+          selectingMode={selectingMode}
         />
 
       </div>
