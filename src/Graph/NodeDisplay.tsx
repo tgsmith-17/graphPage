@@ -158,9 +158,7 @@ function NodeDisplay({graph, setMousePos, mousePos, canvasRef,
   
   // HERE
   useAnimationFrame(deltaTime:number => {
-    updateFrame(prevCount:number => (
-      prevCount + deltaTime * 0.01) % 100
-    )
+    updateFrame(prevCount:number => (prevCount + deltaTime * 0.01))
   });
 
   return (
@@ -171,7 +169,7 @@ function NodeDisplay({graph, setMousePos, mousePos, canvasRef,
               onClick={handleClick}
               width={window.innerWidth}
               height={window.innerHeight}
-    />
+      />
     </div>
   </>
   );
